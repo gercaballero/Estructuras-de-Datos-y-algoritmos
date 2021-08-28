@@ -1,44 +1,65 @@
-class Pila:
-    __items=[]
-    __tope=None
-    __cant=None
+import numpy as np #IMPORTAR LOS VECTORES
 
-    def __init__(self,cant=0) -> None:
-        self.__items=[]
-        self.__cant=cant
-        self.__tope=-1
+class PilaSecuencial():
+    __items = None
+    __topeInf = 0
+    __topeSup = 0
+    __cant = 0
 
-    def vacia(self):
-        vacia=False
-        if self.__tope==-1:
-            vacia=True
+    def __init__(self,xcant=0):
+        self.__items = np.empty(xcant,dtype=int)
+        self.__cant = xcant
+        self.__topeInf = -1
+        self.__topeSup = xcant
+    
+    def vaciaInf(self):
+        vacia = False
+        if(self.__topeInf == -1):
+            vacia= True
         return vacia
-    def insertar(self,item):
-        if self.__tope< (self.__cant-1):
-            self.__items[self.__tope+1]
-            self.__tope=self.__tope+1
-            return item
+    def vaciaSup(self):
+        vacia = False
+        if (self.__topeSup == self.__cant):
+            vacia = True
+        return vacia
+
+    def llena(self):
+        llena = False
+        if(self.__topeInf == self.__topeSup-1):
+            llena = True           
+        return llena 
+
+    def insertarInf(self,x):
+        llena = self.llena()
+        if(not llena):
+            self.__topeInf += 1
+            self.__items[self.__topeInf] = x    
         else:
-            return 0
-'''
-int suprimir(void)
-{ int x;
-if (vacia())
-{ printf("%s","Pila vacia");
-return(0);
-}
-else
-{ x=items[tope--];
-return(x);
-}
-}
-void mostrar(void)
-{ int i;
-if (!vacia())
-{ for (i=tope; i>=0; i--)
-{ cout<<items[i]<<endl;
-}
-}
-}
-};
-'''
+            print("Pila inferior llena")
+
+    def insertarSup(self,x):
+        llena = self.llena()
+        if(not llena):
+            self.__topeSup -= 1
+            self.__items[self.__topeSup] = x 
+        else:
+            print("Pila superior llena")
+
+    def suprimirInf(self):
+        x = None
+        vacia = self.vaciaInf()
+        if(vacia):
+            x = "Pila inferior vacia"
+        else:
+            x = self.__items[self.__topeInf]
+            self.__topeInf -= 1
+        return x
+
+    def suprimirSup(self):
+        vacia = self.vaciaSup()
+        if(vacia):
+            x = "Pila superior vacia"
+        else:
+            x = self.__items[self.__topeSup]
+            self.__topeSup += 1
+        return x
