@@ -1,8 +1,12 @@
-from classPilaEncadenada import PilaEncadenada
+from classPilas import PilaEncadenada
 
 def factorial(num):
-    factorial=PilaEncadenada()
-    for i in range (num):
-        mult=num * (num-1)
-        factorial.insertar(mult)
-        
+    pila=PilaEncadenada()
+    fac=1
+    while num > 0:
+        pila.insertar(num)
+        num -= 1
+    while not pila.vacia():
+        x = pila.suprimir()
+        fac = fac * x
+    print('EL FACTORIAL ES: {}'.format(fac))
