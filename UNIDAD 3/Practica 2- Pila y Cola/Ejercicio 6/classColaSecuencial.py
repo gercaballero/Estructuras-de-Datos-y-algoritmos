@@ -27,15 +27,9 @@ class cola:
         x=None
         if self.vacia():
             print('PILA VACIA')
+            return 0
         else:
             x=self.__items[self.__pr]
             self.__pr=(self.__pr+1)%self.__max
             self.__cant-=1
             return x
-    """   
-    def recorrer(self):
-        i=None
-        j=None
-        if not self.vacia():
-            for i in range(self.__cant)
-    """
