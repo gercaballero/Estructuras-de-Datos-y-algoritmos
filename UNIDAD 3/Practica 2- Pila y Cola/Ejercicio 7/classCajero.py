@@ -4,11 +4,11 @@ class Cajero:
     __liberado = None
 
     def __init__(self,xtiempo):
-        self.__tAtencion = xtiempo
+        self.__tiempo = xtiempo
         self.__contador=0
-        self.__libre = True
+        self.__liberado = True
     
-    def getlibre(self): #Verificar si esta libre el cajero
+    def getlibre(self):
         return self.__liberado
 
     def setEstado(self):
