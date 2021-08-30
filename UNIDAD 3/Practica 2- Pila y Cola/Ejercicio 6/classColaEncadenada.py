@@ -33,7 +33,7 @@ class ColaEncadenada:
      
     def insertar(self,x):
         nuevo = Nodo(x)
-        if self.__ul == None: #si no hay nada ul y pr apuntan al mismo nodo
+        if self.__ul == None:
             self.__pr = nuevo
         else:
             self.__ul.setSiguiente(nuevo)
@@ -46,11 +46,11 @@ class ColaEncadenada:
             print("Cola vacia")
             return 0
         else:
-            aux = self.__pr #Para borrar el nodo
+            aux = self.__pr
             x = self.__pr.getDato()
             self.__pr = self.__pr.getSiguiente()
             self.__cant -= 1
-            if self.__pr == None: #si el primero queda nulo, el ultimo debe quedar nulo
+            if self.__pr == None: 
                 self.__ul = None
             del aux
             return x
