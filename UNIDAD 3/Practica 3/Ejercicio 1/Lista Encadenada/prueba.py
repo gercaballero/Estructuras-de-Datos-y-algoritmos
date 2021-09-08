@@ -1,6 +1,5 @@
-
 from ListaEncadenada import ListaEncadenada
-from EncadenadaConCursor import ListaEncadenadaConCursores
+
 if __name__=='__main__':
     lista=ListaEncadenada(5)
     lista.insertarContenido(10)

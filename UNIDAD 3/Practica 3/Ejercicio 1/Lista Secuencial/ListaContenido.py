@@ -1,4 +1,4 @@
-import numpy as np 
+import numpy as np   ##Relacion de orden
 class Lista:
     __items=None
     __tope=0
