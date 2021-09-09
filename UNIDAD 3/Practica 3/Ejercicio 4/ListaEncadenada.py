@@ -31,7 +31,7 @@ class ListaEncadenada:
     def lleno(self):
         return self.__tope<self.__cant
     def getTope(self):
-        return self.__tope
+        return int(self.__tope)
     
     def insertar(self,posicion,elemento):
         if self.lleno():
@@ -127,17 +127,16 @@ class ListaEncadenada:
             print('ERROR:La lista esta vacia')
 
     def recorrer(self):
-        lista='['
-        aux=self.__cab
-        if aux!=None:
-            lista+=str(aux.getElem())
-            aux=aux.getSig()
-            while aux!=None:
-                lista+=','
-                lista=lista+str(aux.getElem())
+        if not self.vacia():
+            aux=self.__cab
+            if aux!=None:
                 aux=aux.getSig()
-        lista=lista+']'
-        print(lista)
+                while aux!=None:
+                    print(aux.getElem())
+                    aux=aux.getSig()
+        else:
+            print('LISTA VACIA')
+
 
     def primerElemento(self):
         if not self.vacia():
@@ -157,3 +156,19 @@ class ListaEncadenada:
         else:
             print('ERROR:La lista esta vacia')
             input('Presione para continuar...')
+        
+    ''' def recorrer(self):
+        if not self.vacia():
+            lista='['
+            aux=self.__cab
+            if aux!=None:
+                lista+=str(aux.getElem())
+                aux=aux.getSig()
+                while aux!=None:
+                    lista+=','
+                    lista=lista+str(aux.getElem())
+                    aux=aux.getSig()
+            lista=lista+']'
+            print(lista)
+        else:
+            print('LISTA VACIA')'''
