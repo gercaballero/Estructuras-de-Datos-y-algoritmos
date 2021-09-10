@@ -2,21 +2,24 @@ from classDesignacion import Designacion
 from ListaEncadenada import ListaEncadenada
 import csv,os
 from classMenu import Menu
+from classManejador import Manejador
 if __name__=='__main__':
     os.system('cls')
     menu=Menu()
+    manejador=Manejador()
+    manejador.carga()
     salir= False           
     while not salir:
+            os.system('cls')
             print("\n-------------------Menu-------------------")
-            print(' 1- LEER DATOS DE ARCHIVO/GENERAR LISTA')
-            print(' 2- RECORRER LISTA')
-            print(' 3- CANTIDAD MUJERES POR CARGO')
-            print(' 4- CANT. AGENTES POR CARGO,MATERIA Y AÑO')
-            print(' 5- SALIR')
+            print(' 1- RECORRER LISTA')
+            print(' 2- CANTIDAD MUJERES POR CARGO')
+            print(' 3- CANT. AGENTES POR CARGO,MATERIA Y AÑO')
+            print(' 4- SALIR')
             op= input('\n INGRESE UNA OPCION: ')
-            if op in ('1','2','3','4','5'):
-                menu.opcion(int(op))
-                if op=='5':
+            if op in ('1','2','3','4'):
+                menu.opcion(int(op),manejador)
+                if op=='4':
                     salir=True
             else:
                 os.system('cls')

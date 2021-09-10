@@ -33,6 +33,6 @@ class Designacion:
     def getMateria(self):
         return self.__materia
     def getVarones(self):
-        return self.__cantVarones
+        return int(self.__cantVarones)
     def getMujeres(self):
-        return self.__cantMujeres
+        return int(self.__cantMujeres)

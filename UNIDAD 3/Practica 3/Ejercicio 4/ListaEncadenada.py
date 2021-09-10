@@ -1,4 +1,7 @@
 
+import re
+
+
 class Nodo:
     __elem=None
     __sig=None
@@ -18,24 +21,18 @@ class Nodo:
 
 class ListaEncadenada:
     __cab=None
-    __cant=None
     __tope=None
 
-    def __init__(self,xcant) -> None:
-        self.__cant=xcant
+    def __init__(self) -> None:
         self.__cab=None
         self.__tope=0
     
     def vacia(self):
         return self.__tope==0
-    def lleno(self):
-        return self.__tope<self.__cant
     def getTope(self):
         return int(self.__tope)
-    
     def insertar(self,posicion,elemento):
-        if self.lleno():
-            if (posicion > 0)and(posicion <= self.__tope + 1):
+        if (posicion > 0)and(posicion <= self.__tope + 1):
                 nuevo=Nodo(elemento)
                 if self.__cab == None:
                     nuevo.setSig(self.__cab)
@@ -57,10 +54,8 @@ class ListaEncadenada:
                         nuevo.setSig(aux)
                         ant.setSig(nuevo)
                         self.__tope+=1
-            else:
-                print('ERROR: posicion {} inexistente en la lista'.format(posicion))
         else:
-            print('ERROR: lista llena')
+            print('ERROR: posicion {} inexistente en la lista'.format(posicion))
 
     def insertarContenido(self,elemento):
         if self.lleno():
@@ -91,7 +86,6 @@ class ListaEncadenada:
 
 
     def suprimir(self,posicion):
-        if not self.vacia():
             if (posicion > 0)and(posicion <= self.__tope):
                 i=1
                 aux=self.__cab
@@ -104,27 +98,25 @@ class ListaEncadenada:
                     self.__cab=aux.getSig()
                 else:
                     ant.setSig(aux.getSig())
+                self.__tope -= 1
             else:
                 print('ERROR: posicion no valida')
     
     def recuperar(self,posicion):
-        if not self.vacia():
+            retorna=None
             if (posicion > 0)and(posicion <= self.__tope):
                 i=1
                 aux=self.__cab
-                ant=self.__cab
                 while i!=posicion:
-                    ant=aux
                     aux=aux.getSig()
                     i+=1
-                if i==posicion:
-                    return aux.getElem()
+                retorna = aux.getElem()
                     
             else:
+                print('ENTRO ACA')
                 print('ERROR: posicion no valida')
-                return False
-        else:
-            print('ERROR:La lista esta vacia')
+                retorna = False
+            return retorna
 
     def recorrer(self):
         if not self.vacia():
@@ -156,19 +148,3 @@ class ListaEncadenada:
         else:
             print('ERROR:La lista esta vacia')
             input('Presione para continuar...')
-        
-    ''' def recorrer(self):
-        if not self.vacia():
-            lista='['
-            aux=self.__cab
-            if aux!=None:
-                lista+=str(aux.getElem())
-                aux=aux.getSig()
-                while aux!=None:
-                    lista+=','
-                    lista=lista+str(aux.getElem())
-                    aux=aux.getSig()
-            lista=lista+']'
-            print(lista)
-        else:
-            print('LISTA VACIA')'''
