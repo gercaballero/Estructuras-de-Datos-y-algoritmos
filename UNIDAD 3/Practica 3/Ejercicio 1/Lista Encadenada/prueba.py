@@ -1,12 +1,10 @@
-from ListaEncadenada import ListaEncadenada
+from ListaEncadenadaPos import ListaEncadenadaPos
 
 if __name__=='__main__':
-    lista=ListaEncadenada(5)
-    lista.insertarContenido(10)
-    lista.insertarContenido(5)
-    '''lista.insertarContenido(15)'''
-    '''lista.insertarContenido(16)
-    lista.insertarContenido(20)'''
+    lista=ListaEncadenadaPos(5)
+    lista.insertar(1,10)
+    lista.insertar(1,5)
+    lista.insertar(4,30)
     print('Primer elemento {}'.format(lista.primerElemento()))
     print('Ultimo elemento {}'.format(lista.ultimoElemento()))
     #lista.insertar(2,15)
