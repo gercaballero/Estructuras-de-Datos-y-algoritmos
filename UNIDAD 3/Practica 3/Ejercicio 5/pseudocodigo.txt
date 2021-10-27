@@ -1,0 +1,26 @@
+#LISTA SECUENCIAL POR POSICION
+i = 1
+MIENTRAS( i < Longitud(lista)+1)
+    valor1 = lista[i]
+    j = i+1
+    MIENTRAS(j < Longitud(lista))
+        valor2 = lista[j]
+        SI(valor1 == valor2)
+            ENTONCES   Suprimir(lista[j])
+            SINO    j = j+1
+        FIN SI
+    FIN MIENTRAS
+    i = i+1
+FIN MIENTRAS
+    
+
+#LISTA SECUENCIAL POR CONTENIDO
+i = 0
+MIENTRAS (i < Longitud(lista)-1)
+    valor1 = lista[i]
+    valor2 = lista[i+1]
+    SI valor1 == valor2
+        ENTONCES   Suprimir(lista[i+1])
+        SINO    i = i+1
+    FIN SI
+FIN MIENTRAS
