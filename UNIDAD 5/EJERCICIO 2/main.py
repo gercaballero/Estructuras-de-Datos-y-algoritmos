@@ -1,4 +1,4 @@
-
+from random import randint, seed, random
 import random
 from classTablaHash import TablaHash
 
@@ -7,8 +7,12 @@ if __name__ == '__main__':
     cant= int(input('Ingrese cantidad de claves: '))
     tablaPrimo = TablaHash(cant)
     tablaNoPrimo = TablaHash(cant,False)
+    claves=[]
     for i in range(tablaPrimo.getTamano()):
-        num = random.randrange(10000,99999)
+        num = randint(10000,99999)
+        while num in claves:
+            num = randint(5000,9999)
+        claves.append(num)
         tablaPrimo.insertar(num)
         tablaNoPrimo.insertar(num)
     tablaPrimo.mostrarTabla()

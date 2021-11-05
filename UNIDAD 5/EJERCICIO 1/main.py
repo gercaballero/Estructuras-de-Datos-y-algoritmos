@@ -2,6 +2,9 @@
 import random
 from classTablaHash import TablaHash
 
+def cargaTabla():
+    pass
+
 
 if __name__ == '__main__':
     cant= int(input('Ingrese cantidad de claves: '))
@@ -11,7 +14,9 @@ if __name__ == '__main__':
         num = random.randrange(10000,99999)
         tablaPrimo.insertar(num)
         tablaNoPrimo.insertar(num)
+    print('---------TABLA CON NUMERO DE CLAVES PRIMO---------')
     tablaPrimo.mostrarTabla()
+    print('---------TABLA SIN NUMERO DE CLAVES PRIMO---------')
     tablaNoPrimo.mostrarTabla()
     claveBus = int(input('INGRESE LA CLAVE A BUSCAR ----> '))
     tablaPrimo.buscar(claveBus)
